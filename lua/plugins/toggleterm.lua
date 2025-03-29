@@ -9,6 +9,7 @@ return {
 			})
 
 			vim.keymap.set("n", "<leader>t", "<CMD>ToggleTerm<CR>", { desc = "Toggle Terminal" })
+			vim.keymap.set("t", "<Esc><Esc>", "<CMD>ToggleTerm<CR>", {})
 		end,
 	},
 }

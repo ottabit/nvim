@@ -60,7 +60,7 @@ return {
 							event.buf
 						)
 					then
-						local highligh_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = true })
+						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = true })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = event.buf,
 							group = highlight_augroup,
@@ -75,9 +75,9 @@ return {
 
 						vim.api.nvim_create_autocmd("LspDetach", {
 							group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
-							callback = function()
+							callback = function(event)
 								vim.lsp.buf.clear_references()
-								vim.api.nvim_clear_autocmds({ group = "lsp-highligh", buffer = event2.buf })
+								vim.api.nvim_clear_autocmds({ group = "lsp-highligh", buffer = event.buf })
 							end,
 						})
 					end
